@@ -1,0 +1,141 @@
+MODEL:
+    IMAGE_SIZE: [480, 480]
+    HEATMAP_SIZE: [240, 240]
+
+WEIGHT: [
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  # 0~9
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  # 10~19
+    1, 1, 1, 1, 4, 1, 1, 1, 1, 1,  # 20~29
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  # 30~39
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 4,  # 40~49
+    2, 4, 2, 4, 1, 1, 2, 1, 4, 2,  # 50~59
+    4, 2, 4, 1, 2, 1, 1, 2, 2, 2,  # 60~69
+    4, 2, 2, 3, 2, 2, 2, 2, 4, 1,  # 70~79
+    1, 2, 1, 1, 4, 1, 1, 2, 1, 1,  # 80~89
+    4, 1, 1, 2, 1, 1, 4, 1, 1, 2,  # 90~99
+    1, 1, 4, 2, 2, 3, 2, 2, 4, 2,  # 100~109
+    2, 3, 2, 2, 2, 2, 3, 2, 2, 2,  # 110~119
+    4, 2, 3, 3
+]
+
+
+DATASET_COFW:
+    DATASET: COFW
+    TRAINSET: D:/learn/load/OCFW/COFW_train_color.mat
+    TESTSET: D:/learn/load/OCFW/COFW_test_color.mat
+    DATA_DIR: D:/learn/load/OCFW/
+    FLIP: True
+    SCALE_FACTOR: 0.25
+    ROT_FACTOR: 30
+    NUM_LANDMARKS: 29
+    LANDMARK_INDEX:  [ 49, 62, 53, 58, 51, 56, 60, 64,  # brow 8 (0-7)
+                         78, 96, 84, 90, 81, 87, 93, 99,  # eyes 8 (8-15)
+                         122, 123, #pupil 2 (16, 17)
+                         76, 77, 70, 73,  # //nose 4 (18-21)
+                         102, 108, 105, 116, 120, 111,  # mouth 6 (22-27)
+                         24, # chin 1  (28)
+                         ] #background
+
+
+DATASET_WFLW:
+    DATASET: WFLW
+    ROOT: D:/learn/load/wflw/WFLW_images
+    DATA_DIR: D:/learn/load/wflw/
+    TRAINSET: D:/learn/load/wflw/face_landmarks_wflw_train.csv
+    TESTSET: D:/learn/load/wflw/face_landmarks_wflw_test.csv
+    # blur expression illumination largepose makeup occlusion
+#    TESTSET: D:\learn\load\wflw\data\wflw\face_landmarks_wflw_test_illumination.csv
+    FLIP: True
+    SCALE_FACTOR: 0.25
+    ROT_FACTOR: 30
+    NUM_LANDMARKS: 98
+    LANDMARK_INDEX: [ 0, 2, 4, 6, 7, 9, 10, 12, 13, 14, 16, 17, 18, 20, 21, 23, 24,  # left chin (0-16) 24 chin center
+                         25, 27, 28, 29, 31, 32, 34, 35, 36, 38, 39, 41, 43, 44, 46, 47,  # right chin (17-32)
+                         49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66,  # brow (33-50)
+                         67, 68, 69, 70, 71, 72, 73, 74, 75,  # nose 9 (51-59)
+                         78, 79, 81, 82, 84, 85, 87, 89, 90, 92, 93, 95, 96, 97, 99, 101,  # eyes 16 (60-75)
+                         102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, # mouth 20 (76-95)
+                         122, 123, # pupil 2 (96-97) background
+                         ] #background
+
+
+DATASET_300W:
+    DATASET: 300W
+    TRAINSET: D:/learn/load/300W/train.tsv
+    TESTSET: D:/learn/load/300W/test_ibug.tsv
+    DATA_DIR: D:/learn/load/300W/
+    FLIP: True
+    SCALE_FACTOR: 0.25
+    ROT_FACTOR: 30
+    NUM_LANDMARKS: 68
+    LANDMARK_INDEX:   [ 1, 3, 5, 8, 11, 15, 19, 22, 24,  # left chin (0-8) 24 chin center
+                         26, 30, 33, 37, 40, 42, 45, 48,  # right chin (9-16)
+                         49, 50, 51, 52, 53, 58, 59, 60, 61, 62,  # brow (17-26)
+                         67, 68, 69, 70, 71, 72, 73, 74, 75,   # nose 9 (27-35)
+                         78, 80, 83, 84, 86, 88, 90, 91, 94, 96, 98, 100, # eyes 12 (36-47)
+                         102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, # mouth 20 (48-67)
+                         ] #background
+
+DATASET_AFLW:
+    DATASET: AFLW
+    TRAINSET: D:/learn/load/AFLW/face_landmarks_aflw_train.csv
+    TESTSET: D:/learn/load/AFLW/face_landmarks_aflw_test.csv
+    DATA_DIR: D:/learn/load/AFLW/matlab_get_aflw/
+    FLIP: True
+    SCALE_FACTOR: 0.25
+    ROT_FACTOR: 30
+    NUM_LANDMARKS: 19
+    LANDMARK_INDEX: [ 49, 51, 53, 58, 60, 62,  # brow 6 (0-5)
+                         78, 122, 84, 90, 123, 96,  # eyes 6 (6-11)
+                         76, 70, 77,  # nose 3 (12-14)
+                         102, 120, 108,  # mouth 3 (15-17)
+                         24, # chin 1 (18)
+                         ] #background
+TRAIN:
+    BATCH_SIZE: 1
+    SHUFFLE: True
+    LARGEST_NUM: 20000
+TEST:
+    BATCH_SIZE: 8
+    SHUFFLE: False
+
+eval_type: ber
+
+#data_norm:
+#  inp: {sub: [0.5], div: [0.5]}
+#  gt: {sub: [0.5], div: [0.5]}
+#  gt_rgb: {sub: [0.5], div: [0.5]}
+
+model:
+  name: segformer
+  args:
+    loss: AWingLoss # MSELoss AnisotropicDirectionLoss SmoothL1Loss AWingLoss
+    num_points: 124
+    encoder_mode:
+      name: evp
+      scale_factor: 4
+      input_type: hpf
+      freq_nums: 0.25
+      prompt_type: highpass
+      tuning_stage: 1234
+      handcrafted_tune: true
+      embedding_tune: true
+      adaptor: adaptor
+      batch_size: 2
+
+optimizer:
+  name: adamw
+  args:
+    lr: 2.5e-4
+epoch_max: 100000
+
+beta: 0.9
+milestones: [40000, 70000, 90000]
+#resume: ./save\full_model_epoch1_.pth
+epoch_val: 500
+epoch_save: 10000
+WORKERS: 0
+PIN_MEMORY: True
+OUTPUT_DIR: ./save/
+ema: True
+
