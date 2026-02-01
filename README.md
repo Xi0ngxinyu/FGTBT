@@ -15,7 +15,7 @@
 </p>
 
 
-![teaser](assets/model.png)
+![teaser](model.png)
 
 
 
