@@ -12,6 +12,12 @@
       alt="FGTBT Paper on arXiv"
     />
   </a>
+  <a href="https://huggingface.co/xxxxxxxxy/FGTBT">
+    <img 
+        src="https://img.shields.io/badge/FGTBT-Huggingface-orange?logo=huggingface&logoColor=yellow" 
+        alt="GeoBenchMeta"
+    />
+  </a>
 </p>
 
 
